@@ -1,0 +1,53 @@
+     
+     
+     
+     {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "debug": true,
+              "targets": {    /** targets Describes the environments you support/target for your project.*/
+                "chrome": "58",
+                "ie": "11"
+              },
+              "useBuiltIns": "entry"
+            }
+          ]
+        ]
+      }
+
+      // Example environments: chrome, opera, edge, firefox, safari, ie, ios, android, node, electron.
+
+      // Sidenote, if no targets are specified, @babel/preset-env will transform all ECMAScript 2015+ code by default.
+
+      // We don't recommend using preset-env this way because it doesn't take advantage of its ability to target specific browsers.
+
+      // You may also target browsers supporting ES Modules (https://www.ecma-international.org/ecma-262/6.0/#sec-modules). When specifying this option, the browsers field will be ignored. You can use this approach in combination with <script type="module"></script> to conditionally serve smaller scripts to users (https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility).
+
+      /* 
+      {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "esmodules": true
+              }
+            }
+          ]
+        ]
+      }
+      More on https://babeljs.io/docs/en/babel-preset-env
+
+
+      useBuiltIns
+      "usage" | "entry" | false, defaults to false.
+
+      This option configures how @babel/preset-env handles polyfills.
+
+      When either the usage or entry options are used, @babel-preset-env will add direct references to core-js modules as bare imports (or requires). This means core-js will be resolved relative to the file itself and needs to be accessible.
+      */
+
+
+

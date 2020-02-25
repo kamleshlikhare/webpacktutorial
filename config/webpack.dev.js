@@ -1,5 +1,4 @@
   const path = require('path');
-  const CopyPlugin = require('copy-webpack-plugin');
 
   module.exports = {
     entry: {
@@ -20,7 +19,18 @@
     },
     module: {
       /** rules - these rules the webpack will use when encounter various file type, rules takes an object of 'test' will take regular expression, for file type you wnnaa target, it also take use array param, where you specify your loader */
-      rules: [{
+      rules: [
+        {
+          test: /\.js$/,
+          use: [
+            {
+              loader: 'babel-loader'
+            }
+          ],
+          exclude: '/node-modules/' /** exclude node-modules */
+        },
+        
+        {
           test: /\.css$/,
           use: [{
               loader: 'style-loader'
@@ -70,12 +80,5 @@
         },
         
       ]
-    },
-
-    plugins: [
-      new CopyPlugin([
-        
-      ]),
-    ]
-
+    }
   }
