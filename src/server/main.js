@@ -1,0 +1,2 @@
+require("@babel/register"); /* Now this library tells babbel to transpile everything after it using the Babel rules we set up in battle RC. In this case we're going to want Babel to transpile our express js file. */
+require('./express');

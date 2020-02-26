@@ -1,8 +1,10 @@
   const path = require('path');
+  const webpack = require('webpack');
+  const htmlWebpackPlugin = require('html-webpack-plugin');
 
   module.exports = {
     entry: {
-      main: "./src/main.js"
+      main: ["./src/main.js"]
     },
     mode: "development",
     output: {
@@ -13,6 +15,7 @@
     /** devServer - setting for server */
     devServer: {
       contentBase: "dist",
+      hot: true, /** hot reloading */
       /** this means everything get served in dist folder */
       overlay: true
 
@@ -45,15 +48,7 @@
         {
           test: /\.html$/,
           use: [
-            {
-              loader: 'file-loader',/** just for file name or convention */          
-              options: {
-                name: "[name].html"
-              }
-            },
-            {
-              loader: 'extract-loader',/** tells webpack this want to be a seperate file and not included in main bundle js */ 
-            },
+            
             {
               loader: 'html-loader'/** does the linting */ ,
               options: {
@@ -80,5 +75,10 @@
         },
         
       ]
-    }
+    }, plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new htmlWebpackPlugin({
+        template: './src/index.html'
+      })
+    ]
   }
