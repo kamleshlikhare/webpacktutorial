@@ -6,12 +6,10 @@
           [
             "@babel/preset-env",
             {
-              "debug": true,
               "targets": {    /** targets Describes the environments you support/target for your project.*/
                 "chrome": "58",
                 "ie": "11"
-              },
-              "useBuiltIns": "entry"
+              }
             }
            ,
            
@@ -19,7 +17,8 @@
           [
             "@babel/preset-react"
           ]
-        ]
+        ],
+        "plugins": ["@babel/plugin-transform-runtime", "react-hot-loader/babel"]
       }
 
       // Example environments: chrome, opera, edge, firefox, safari, ie, ios, android, node, electron.

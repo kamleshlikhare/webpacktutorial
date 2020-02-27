@@ -16,9 +16,10 @@ const webpackHotMiddlware = require("webpack-hot-middleware")(
 )
 
 server.use(webpackDevMiddleware);
-server.use(webpackDevMiddleware);
+server.use(webpackHotMiddlware);
 
 const staticMiddleware = express.static("dist") /** For static files */
+
 server.use(staticMiddleware)
 server.listen(8000, ()=> {
   console.log('server started');

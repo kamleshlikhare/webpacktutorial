@@ -44,17 +44,28 @@
           ]
         },
 
+        {
+          test: /\.sass$/,
+          use: [{
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ]
+        },
+
+
         
         {
           test: /\.html$/,
           use: [
             
             {
-              loader: 'html-loader'/** does the linting */ ,
-              options: {
-                attrs: ["img:src", "link:href"]/**for loading image in html */
-                
-              }
+              loader: 'html-loader'/** does the linting */ 
             }
 
 
@@ -77,6 +88,7 @@
       ]
     }, plugins: [
       new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin(),
       new htmlWebpackPlugin({
         template: './src/index.html'
       })
